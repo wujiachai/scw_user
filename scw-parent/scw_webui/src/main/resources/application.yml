@@ -1,0 +1,49 @@
+server:
+  port: 9009
+
+spring:
+  application:
+    name: scwWebui
+  redis:
+    host: 192.168.188.128
+    port: 6379
+  session:
+    store-type: redis
+    timeout: 18000
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/ #去模板文件夹里去找 #都是默认的
+    suffix: .html #都是默认的
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+
+#日志留痕
+logging:
+  file:
+    path: d:\log\scw-webui
+  level:
+    com:
+      offcn: debug
+feign:
+  hystrix:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 2000
+        readTimeout: 2000
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+
+

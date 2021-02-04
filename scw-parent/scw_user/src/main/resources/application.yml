@@ -1,0 +1,42 @@
+server:
+  port: 7000
+
+spring:
+  application:
+    name: scwUser
+  datasource:
+    url: jdbc:mysql://localhost:3306/atcrowdfunding?serverTimezone=GMT%2B8&useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat
+  redis:
+    host: 192.168.188.128
+    port: 6379
+mybatis:
+  type-aliases-package: com.offcn.user.pojo
+  mapper-locations: classpath:com/offcm/user/mapper/*.xml
+  config-location: classpath:mybatis/mybatis-config.xml
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+
+#日志留痕
+logging:
+  file:
+    path: d:\log\scw-user
+  level:
+    com:
+      offcn: debug
+
+sms:
+  appcode: b69726266414476da2157fc0cdb62c48
+  tplid: TP1711063
+
+
